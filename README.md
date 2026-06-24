@@ -32,9 +32,9 @@ Penjelasan file:
 
 ## Design Pattern yang Digunakan
 
-### 1. Factory Method
+### 1. Creational Pattern
 
-Factory Method digunakan di `factory.py` melalui `MenuFactory`.
+Creational Pattern digunakan di `factory.py` melalui `MenuFactory`.
 
 Tujuannya adalah membuat objek menu berdasarkan kategori tanpa membuat objek `FoodItem` atau `DrinkItem` secara langsung di `main.py`.
 
@@ -46,9 +46,9 @@ item = MenuFactory.create("Drink", "Americano", 20000)
 
 Jika kategori adalah `Drink`, factory akan membuat `DrinkItem`. Jika kategori adalah `Food`, factory akan membuat `FoodItem`.
 
-### 2. Decorator Pattern
+### 2. Topping Pattern
 
-Decorator Pattern digunakan di `topping.py` melalui `MenuTopping`.
+Structural Pattern digunakan di `topping.py` melalui `MenuTopping`.
 
 Tujuannya adalah menambahkan topping ke item tanpa mengubah class asli item tersebut. Setiap topping menambah nama dan harga item.
 
@@ -60,9 +60,9 @@ item = MenuTopping(item, "Milk", 3000)
 
 Jika item awal adalah `Americano` seharga `Rp20,000`, setelah ditambah `Milk`, nama menjadi `Americano + Milk` dan harga menjadi `Rp23,000`.
 
-### 3. Observer Pattern
+### 3. Behavioral Pattern
 
-Observer Pattern digunakan di `observer.py`.
+Behavioral Pattern digunakan di `observer.py`.
 
 Tujuannya adalah memberi notifikasi otomatis ketika status order berubah.
 
@@ -201,10 +201,3 @@ Contoh topping yang bisa dipakai untuk makanan dan minuman:
 ```
 
 Tidak perlu membuat class topping baru di `topping.py`, karena `MenuTopping` sudah dibuat generic.
-
-## Catatan Pengembangan
-
-- Sistem database saat ini masih in-memory, sehingga data akan hilang saat program berhenti.
-- Untuk pengembangan berikutnya, `ORDER_DB`, `MENU_DB`, dan `TOPPING_DB` bisa dipindahkan ke SQLite, JSON file, atau database server.
-- Project ini cocok untuk latihan konsep OOP dan design pattern: Factory Method, Decorator, dan Observer.
-
