@@ -1,0 +1,30 @@
+from factory import MenuFactory
+from topping import (MilkTopping, SugarTopping, CheeseTopping)
+from observer import (OrderSubject, KitchenObserver, CashierObserver, DisplayObserver)
+
+print("==== FACTORY METHOD ====")
+drink = MenuFactory.create("Drink", "Amricano", 20000)
+food = MenuFactory.create("Food", "Toast Bread", 15000)
+print(drink)
+print(food)
+
+print("\n==== TOPPING ====")
+drink = MilkTopping(drink)
+drink = SugarTopping(drink)
+food = CheeseTopping(food)
+print(f"{drink.get_name()} → Rp{drink.get_price() :,}")
+print(f"{food.get_name()} → Rp{food.get_price() :,}")
+
+print("\n==== OBSERVER ====")
+order = OrderSubject("Rifqi")
+order.attach(KitchenObserver())
+order.attach(CashierObserver())
+order.attach(DisplayObserver())
+order.add_item(drink, 2)
+order.add_item(food, 1)
+order.show_order()
+
+print("\nConfirm Order")
+order.confirm()
+print("\nComplete Order")
+order.complete()
