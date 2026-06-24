@@ -59,7 +59,7 @@ class OrderSubject :
         for data in self.items :
             item = data["item"]
             qty = data["qty"]
-            print(f"{qty} x {item.get_name()} → Rp{item.get_price() * qty:,}")
+            print(f"{qty} x {item.get_name()} -> Rp{item.get_price() * qty:,}")
 
         print("-" * 40)
         print(f"TOTAL : Rp{self.total():,}")

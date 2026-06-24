@@ -1,35 +1,16 @@
 from factory import MenuItem
 
 class MenuTopping(MenuItem) :
-    def __init__(self, item) :
+    def __init__(self, item, topping_name, topping_price) :
         self.item = item
+        self.topping_name = topping_name
+        self.topping_price = topping_price
 
     def get_category(self) :
         return self.item.get_category()
 
     def get_name(self) :
-        return self.item.get_name()
+        return self.item.get_name() + " + " + self.topping_name
 
     def get_price(self) :
-        return self.item.get_price()
-
-class MilkTopping(MenuTopping) :
-    def get_name(self) :
-        return self.item.get_name() + " + Milk"
-
-    def get_price(self):
-        return self.item.get_price() + 3000
-
-
-class SugarTopping(MenuTopping) :
-    def get_name(self) :
-        return self.item.get_name() + " + Sugar"
-    def get_price(self):
-        return self.item.get_price() + 1000
-
-class CheeseTopping(MenuTopping) :
-    def get_name(self) :
-        return self.item.get_name() + " + Cheese"
-
-    def get_price(self) :
-        return self.item.get_price() + 5000
+        return self.item.get_price() + self.topping_price

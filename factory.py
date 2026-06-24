@@ -16,7 +16,7 @@ class MenuItem(ABC) :
         return self.price
 
     def __str__(self) :
-        return f"[{self.get_category()}] {self.get_name()} → Rp{self.get_price():,}"
+        return f"[{self.get_category()}] {self.get_name()} -> Rp{self.get_price():,}"
 
 class FoodItem(MenuItem) :
     def get_category(self) :
